@@ -4,7 +4,7 @@
 require_once __DIR__ . '../../connect/database.php';
 
 class COMMENTPLUS{
-	function get_AllCommentPlusByArticle($numArt){
+/*	function get_AllCommentPlusByArticle($numArt){
 		global $db;
 
 		// select
@@ -41,3 +41,5 @@ class COMMENTPLUS{
 		}
 	}
 }	// End of class
+*/
+}
