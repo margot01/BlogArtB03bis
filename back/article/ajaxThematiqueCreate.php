@@ -14,21 +14,21 @@ require_once __DIR__ . '/../../class_crud/thematique.class.php';
 
 <select name='TypThem' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
 <?php
-$Langue = $_REQUEST["numLang"];
+$TypLang = $_REQUEST["numLang"];
 
-if (isset($Langue)) {
+if (isset($TypLang)) {
 	$query = "SELECT numThem, libThem FROM THEMATIQUE WHERE numLang = ?;" ;
 	$result = $db->prepare($query);
-	$result->execute([$Langue]);
-	$allThematiquesByLangue = $result->fetchAll();
+	$result->execute([$TypLang]);
+	$allThematiquesByLang = $result->fetchAll();
 
-	if ($allThematiquesByLangue) {
+	if ($allThematiquesByLang) {
 ?>
 			<option value='-1'>- - - Choisissez une thematique - - -</option>
 <?php
-			foreach($allThematiquesByLangue as $row){
+			foreach($allThematiquesByLang as $row){
 ?>
-				<option value="<?php $row['numThem']; ?>">
+				<option value="<?php echo $row['numThem']; ?>">
 					<?php echo $row['libThem']; ?>
 				</option>
 <?php
