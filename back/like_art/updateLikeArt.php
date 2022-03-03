@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     
     if (isset($_GET['id1']) AND !empty($_GET['id1']) 
     AND isset($_GET['id2']) AND !empty($_GET['id2'])) {
-        echo 1;
+
    
         // Ctrl saisies form
         $numMemb = ctrlSaisies($_GET['id1']);
