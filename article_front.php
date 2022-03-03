@@ -74,4 +74,9 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 
 </section>
 </body>
+<section>
+<?php
+require_once ROOT . '/front/includes/commons/___footerFront.php';
+?>
+</section>
 </html>
