@@ -14,7 +14,7 @@ $userBD = 'root';         // Votre login
 //$userBD = 'etummiuser_db_03';         // Votre login
 
 // mot de passe de connexion à la BDD
-$passBD = 'root';         // Votre Pass
+$passBD = '';         // Votre Pass
 //$passBD = 'mmi-etu';         // Votre Pass
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BlogArtB03Bis');
