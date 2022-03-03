@@ -17,8 +17,8 @@ $userBD = 'root';         // Votre login
 $passBD = '';         // Votre Pass
 //$passBD = 'mmi-etu';         // Votre Pass
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BlogArt_B03');
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BlogArt_B03');
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BlogArtB03bis');
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BlogArtB03bis');
 
 /*define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/etu-mmi-03');
 define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/etu-mmi-03');*/
