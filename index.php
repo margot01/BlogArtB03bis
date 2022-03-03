@@ -58,7 +58,7 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
     foreach($allArticles as $row){
         if ($i == 1){
             $image=$row['urlPhotArt']; ?>
-            <img src='uploads/<?php$image?>'>
+            <img src='uploads/<?php $image ?>'>
         <?php
         } 
         else {
