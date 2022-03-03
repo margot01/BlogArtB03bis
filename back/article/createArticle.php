@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./createArticle.php");
     }
 
-    echo 2;
+  
 
     // controle des saisies du formulaire
     if (
