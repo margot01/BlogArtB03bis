@@ -22,7 +22,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Article
 require_once __DIR__ . '/../../class_crud/article.class.php';
-
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
@@ -47,7 +46,6 @@ $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
     } else {
@@ -97,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $urlPhotArt = $nomImage ; 
 
         $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
-
 
         header("Location: ./article.php");
 
@@ -333,7 +330,6 @@ include __DIR__ . '/initArticle.php';
       	  <br /><br /><br />
 		</fieldset>
 		<br/><br/>
-		</form>
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
  
@@ -355,7 +351,7 @@ include __DIR__ . '/initArticle.php';
       	  <br /><br /><br />
 		</fieldset>
 		<br/><br/>
-		</form>
+	
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
   
