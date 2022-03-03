@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $parag3Art = ctrlSaisies($_POST['parag3Art']);
         $libConclArt = ctrlSaisies($_POST['libConclArt']);
         $numAngl = ctrlSaisies($_POST['numAngl']);
-        $numThem = ctrlSaisies($_POST['numThem']);
+        $numThem = ctrlSaisies($_POST['TypThem']);
     
 if (isset($_FILES['monfichier']['tmp_name']) AND !empty($_FILES['monfichier']['tmp_name'])) {
     $target_file = $targetDir . $urlPhotArt;

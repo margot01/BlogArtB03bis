@@ -13,6 +13,6 @@ $userBD = 'root';         // Votre login
 
 $passBD = 'root';         // Votre Pass
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BlogART_B03');
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BlogART_B03');
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BlogArtB03Bis');
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BlogArtB03Bis');
 
