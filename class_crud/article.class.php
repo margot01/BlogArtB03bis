@@ -82,6 +82,26 @@ class ARTICLE{
 		return($count);
 	}
 
+	function get_4DerniersArticles(){
+		global $db;
+
+		// Recherche plusieurs mots clés (CONCAT)
+		$textQuery = 'SELECT * FROM ARTICLE ORDER BY dtCreArt DESC LIMIT 4';
+		$result = $db->query($textQuery);
+		$allArticlesByDates = $result->fetchAll();
+		return($allArticlesByDates);
+	}
+
+	function get_LastArticlebyDate(){
+		global $db;
+
+		// Recherche plusieurs mots clés (CONCAT)
+		$textQuery = 'SELECT * FROM article ORDER BY dtCreArt DESC LIMIT 1';
+		$result = $db->query($textQuery);
+		$lastArticlesByDates = $result->fetchAll();
+		return($lastArticlesByDates);
+	} // End of function
+	
 	// Barre de recherche CONCAT : mots clés dans ARTICLE & THEMATIQUE
 	function get_ArticlesByMotsCles($motcle){
 		global $db;
