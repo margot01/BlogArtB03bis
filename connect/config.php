@@ -22,4 +22,3 @@ define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BlogArtB03bis');
 
 /*define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/etu-mmi-03');
 define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/etu-mmi-03');*/
-
