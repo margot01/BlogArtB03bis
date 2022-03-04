@@ -60,7 +60,7 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 
     <a href="/front/includes/commons/article_front.php">
     <?php foreach($dernierArticle as $row) {?>
-        <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $raw["urlPhotArt"]);?>" alt="image de l'article"/>
+        <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>" alt="image de l'article"/>
         <h3> <?php echo $row["libTitrArt"] ?> </h3>
         <p> <?php echo $row["dtCreArt"] ?> </p>
         <p> <?php echo $row["libChapoArt"] ?> </p>
