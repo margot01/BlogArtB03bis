@@ -88,6 +88,16 @@ class ARTICLE{
 		// Recherche plusieurs mots clés (CONCAT)
 		$textQuery = 'SELECT * FROM article ORDER BY dtCreArt DESC LIMIT 4';
 		$result = $db->query($textQuery);
+		$all4LastArticlesByDates = $result->fetchAll();
+		return($all4LastArticlesByDates);
+	}
+
+	function get_allArticlesByDate(){
+		global $db;
+
+		// Recherche plusieurs mots clés (CONCAT)
+		$textQuery = 'SELECT * FROM ARTICLE ORDER BY dtCreArt DESC';
+		$result = $db->query($textQuery);
 		$allArticlesByDates = $result->fetchAll();
 		return($allArticlesByDates);
 	}

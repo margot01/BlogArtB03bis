@@ -8,11 +8,11 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/connect/config.php';
-require_once __DIR__ . '/util/utilErrOn.php';
+require_once './connect/config.php';
+require_once './util/utilErrOn.php';
 
 // Insertion classe Langue 
-require_once ROOT . '/class_crud/article.class.php';
+require_once './class_crud/article.class.php';
 // Instanciation de la classe angle
 $monArticle = new ARTICLE();
 ?>
@@ -20,38 +20,25 @@ $monArticle = new ARTICLE();
 <link rel="stylesheet" href="<?php echo(ROOTFRONT . '/back/css/style.css');?>">
 
 <?php
-require_once ROOT . '/front/includes/commons/___headerFront.php';
+require_once './front/includes/commons/___headerFront.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="fr-FR">
 
 <head>
-    <title>Brrrdeaux - Paranormal à Bordeaux</title>
+    <title>Brrrdeaux - Tous les articles</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 </head>
 
-<section class="top-page-index" style="background-image: url('<?php echo(ROOTFRONT . '/front/assets/images/topage.png');?>')">
-    <div class="top-page-index_content" >
-        <h1>Paranormal à Bordeaux</h1>
-    </div>
-</section>
-
-<section class="presentation">
-    <p>
-        Postremo ad id indignitatis est ventum, ut cum peregrini ob formidatam haut ita dudum alimentorum 
-        inopiam pellerentur ab urbe praecipites, sectatoribus disciplinarum liberalium inpendio paucis sine 
-        respiratione ulla extrusis, tenerentur minimarum adseclae veri, quique id simularun
-    </p>
-</section>
-
 <section class="lastArticles">
-    <h2>Les derniers articles</h2>
+        <h1>Tous les articles</h1>
+    <h2>A la une</h2>
     <?php
-        $allArticles=$monArticle->get_4DerniersArticles();
+        $allArticles=$monArticle->get_allArticlesByDate();
         $dernierArticle=$monArticle->get_LastArticlebyDate();
         $i=1;
     ?>
@@ -66,7 +53,7 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
         <?php } ?>
     </a>
     
-    <div class="troisPetitsArticles">
+    <div class="troisPetitsArticles2">
     <?php foreach($allArticles as $ligne) {
         $idSelectArt=$ligne['numArt'];
         ?> <a href="article_front.php?id=<?php echo $idSelectArt?>"> <?php
@@ -83,20 +70,20 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
             
             <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div> 
+
         <?php } else { ?>
-        
             <div>
-            <h3> <?php echo $titre; ?> </h3>
-            <p> <?php echo $date ; ?> </p>
-            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
-            
-            <p> <?php echo $chapeau . "<br>"; ?> </p>
+                <h3> <?php echo $titre; ?> </h3>
+                <p> <?php echo $date ; ?> </p>
+                <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+                
+                <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div>
-        <?php } 
+            <?php 
+            }
         $i = $i+1;
-        ?> </a> <?php
-    } 
-    ?>
+        }
+        ?> </a>
     </div>
 
 </section>
