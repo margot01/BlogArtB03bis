@@ -9,16 +9,16 @@
         <nav class="liens">
             <ul class="menu">
                 <li class="menu-accueil">
-                    <a href="index.php" class=accueil>accueil</a>
+                    <a href="<?php echo(ROOTFRONT . '/index.php')?>" class=accueil>accueil</a>
                 </li>
                 <li class="menu-apropos">
-                    <a href="construction.php" class=apropos>a propos</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=apropos>a propos</a>
                 </li>
                 <li class="menu-contact">
-                    <a href="construction.php" class=contact>contact</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=contact>contact</a>
                 </li>
                 <li class="menu-seconnecter">
-                    <a href="mon_compte.php" class=seconnecter>se connecter</a>
+                    <a href="<?php echo(ROOTFRONT . '/mon_compte.php')?>" class=seconnecter>se connecter</a>
                 </li>
             </ul>
         </nav>
