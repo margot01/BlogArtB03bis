@@ -62,8 +62,8 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 <body>
 <section class="jesaispasencore">
     <h1><?php echo $Titre; ?></h1>
-    <p><?php echo $date; ?></p>
-    <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $Photo);?>" alt="image de l'article"/>
+    <p class="date" ><?php echo $date; ?></p>
+    <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $Photo);?>" alt="image de l'article" class="cover"/>
     <h2><?php echo $Chapeau; ?></h2>
     <p><?php echo $Paragraphe1; ?></p>
     <h3><?php echo $Soustitre1; ?></h3>
