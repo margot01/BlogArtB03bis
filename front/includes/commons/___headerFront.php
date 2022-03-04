@@ -18,9 +18,17 @@
                 <li class="menu-articles">
                     <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=articles>articles</a>
                 </li>
-                <!-- <li>
-                    <a href="construction.html">Nous soutenir</a>
-                </li> -->
+                <li>
+                    <a href="index1.php">
+                        <?php
+                        if ($_COOKIE['statut'] == 1){
+                            echo "panneau d'admin";
+                        } else {
+                            echo "&nbsp";
+                        }
+                        ?>
+                    </a>
+                </li>
             </ul>
         </nav>
         
