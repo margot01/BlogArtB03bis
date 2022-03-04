@@ -75,8 +75,14 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
         $chapeau=$ligne['libChapoArt'];
         $image=$ligne['urlPhotArt'];
 
-        if ($i == 1){
-            $image = $ligne['urlPhotArt']; ?> 
+        if ($i == 1){ ?> 
+            <div class="onveutpastevoir">
+            <h3> <?php echo $titre; ?> </h3>
+            <p> <?php echo $date ; ?> </p>
+            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+            
+            <p> <?php echo $chapeau . "<br>"; ?> </p>
+            </div> 
         <?php } else { ?>
         
             <div>
