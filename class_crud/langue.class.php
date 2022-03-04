@@ -10,7 +10,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LANGUE WHERE numLang = ?';
+		$query = 'SELECT * FROM langue WHERE numLang = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -23,7 +23,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LANGUE LA INNER JOIN PAYS PA ON LA.numPays = PA.numPays WHERE numLang = ?;';
+		$query = 'SELECT * FROM langue la INNER JOIN pays pa ON la.numPays = pa.numPays WHERE numLang = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -36,7 +36,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LANGUE';
+		$query = 'SELECT * FROM langue';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -49,7 +49,7 @@ class LANGUE{
 		global $db;
 
 		// select
-        $query = 'SELECT * FROM LANGUE LA INNER JOIN PAYS PA ON LA.numPays = PA.numPays';
+        $query = 'SELECT * FROM langue la INNER JOIN pays pa ON la.numPays = pa.numPays';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -61,7 +61,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+		$query = 'SELECT * FROM langue ORDER BY lib1Lang;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -80,7 +80,7 @@ class LANGUE{
 		$numPaysSelect = $numPays;  // exemple : 'CHIN'
 		$parmNumLang = $numPaysSelect . '%';
 	
-		$requete = "SELECT MAX(numLang) AS numLang FROM LANGUE WHERE numLang LIKE '$parmNumLang';";
+		$requete = "SELECT MAX(numLang) AS numLang FROM langue WHERE numLang LIKE '$parmNumLang';";
 	
 		$result = $db->query($requete);
 	
@@ -116,7 +116,7 @@ class LANGUE{
 
 		try {
 			$db->beginTransaction();
-			$query = 'INSERT INTO LANGUE (numLang, lib1Lang, lib2Lang, numPays) VALUES (?, ?, ?, ?)';
+			$query = 'INSERT INTO langue (numLang, lib1Lang, lib2Lang, numPays) VALUES (?, ?, ?, ?)';
             $request = $db->prepare($query);
             $request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
 			$db->commit();
@@ -125,7 +125,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert LANGUE : ' . $e->getMessage());
+			die('Erreur insert langue : ' . $e->getMessage());
 		}
 	}
 
@@ -136,7 +136,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE LANGUE SET lib1Lang = ?, lib2Lang = ?, numPays = ? WHERE numLang = ?";
+			$query = "UPDATE langue SET lib1Lang = ?, lib2Lang = ?, numPays = ? WHERE numLang = ?";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -148,7 +148,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LANGUE : ' . $e->getMessage());
+			die('Erreur update langue : ' . $e->getMessage());
 		}
 	}
 
@@ -160,7 +160,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM LANGUE WHERE numLang = ?";
+			$query="DELETE FROM langue WHERE numLang = ?";
 			// prepare
 			$request=$db->prepare($query);
 			// execute
@@ -174,7 +174,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LANGUE : ' . $e->getMessage());
+			die('Erreur delete langue : ' . $e->getMessage());
 		}
 	}
 }	// End of class
@@ -183,7 +183,7 @@ class PAYS {
 	function get_AllPays(){
         global $db;
 
-        $query = 'SELECT * FROM PAYS;';
+        $query = 'SELECT * FROM pays;';
         $result = $db->query($query);
         $allPays = $result->fetchAll();
         return($allPays);
@@ -192,7 +192,7 @@ class PAYS {
 	function get_1Pays($numPays){
         global $db;
 
-        $query = 'SELECT * FROM PAYS WHERE numPays =?';
+        $query = 'SELECT * FROM pays WHERE numPays =?';
         $result = $db->prepare($query);
 		$result->execute([$numPays]);
 
@@ -203,7 +203,7 @@ class PAYS {
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM PAYS ORDER BY numPays;';
+		$query = 'SELECT * FROM pays ORDER BY numPays;';
 		// prepare
 		$result = $db->query($query);
 		// execute

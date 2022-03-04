@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../class_crud/thematique.class.php';
 $TypLang = $_REQUEST["numLang"];
 
 if (isset($TypLang)) {
-	$query = "SELECT numThem, libThem FROM THEMATIQUE WHERE numLang = ?;" ;
+	$query = "SELECT numThem, libThem FROM thematique WHERE numLang = ?;" ;
 	$result = $db->prepare($query);
 	$result->execute([$TypLang]);
 	$allThematiquesByLang = $result->fetchAll();
