@@ -26,19 +26,19 @@
         <nav class ="nav-utilitaires">
             <ul class="utilitaires">
                 <li class="footer-mentionsLegales">
-                    <a href="index1.html" class=mentionsLegales>accueil</a>
+                    <a href="<?php echo(ROOTFRONT . '/mentions_legales.php')?>" class=mentionsLegales>mentions légales</a>
                 </li>
                 <li class="footer-cgu">
-                    <a href="cgu.html" class=cgu>cgu</a>
+                    <a href="<?php echo(ROOTFRONT . '/cgu.php')?>" class=cgu>cgu</a>
                 </li>
                 <li class="footer-confid">
-                    <a href="confidentialite.html" class=confid>politique de confidentialite</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=confid>politique de confidentialite</a>
                 </li>
                 <li class="footer-rss">
-                    <a href="rss.html" class=rss>flux RSS</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=rss>flux RSS</a>
                 </li>
                 <li class="footer-cookies">
-                    <a href="cookies.html" class=cookies>gestion des cookies</a>
+                    <a href="<?php echo(ROOTFRONT . '/gestion_cookie.php')?>" class=cookies>gestion des cookies</a>
                 </li>
             </ul>
         </nav>
