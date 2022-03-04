@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../class_crud/angle.class.php';
 $TypLang = $_REQUEST["numLang"];
 
 if (isset($TypLang)) {
-	$query = "SELECT numAngl, libAngl FROM ANGLE WHERE numLang = ?;" ; 
+	$query = "SELECT numAngl, libAngl FROM angle WHERE numLang = ?;" ; 
 	$result = $db->prepare($query);
 	$result->execute([$TypLang]);
 	$allAnglesByLang = $result->fetchAll();
