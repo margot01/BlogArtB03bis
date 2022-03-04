@@ -8,7 +8,7 @@ class USER{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM USER WHERE pseudoUser = ?, passUser = ?';
+		$query = 'SELECT * FROM user WHERE pseudoUser = ?, passUser = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -20,7 +20,7 @@ class USER{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM USER WHERE eMailUser = ?, passUser = ?';
+		$query = 'SELECT * FROM user WHERE eMailUser = ?, passUser = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -32,7 +32,7 @@ class USER{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM USER';
+		$query = 'SELECT * FROM user';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -45,7 +45,7 @@ class USER{
 	function get_ExistPseudo($pseudoUser) {
 		global $db;
 
-		$query = 'SELECT * FROM USER WHERE pseudoUser = ?;';
+		$query = 'SELECT * FROM user WHERE pseudoUser = ?;';
 		$result = $db->prepare($query);
 		$result->execute(array($pseudoUser));
 
@@ -55,7 +55,7 @@ class USER{
 	function get_ExistEMail($eMailUser) {
 		global $db;
 
-		$query = 'SELECT * FROM USER WHERE eMailUser = ?;';
+		$query = 'SELECT * FROM user WHERE eMailUser = ?;';
 		$result = $db->prepare($query);
 		$result->execute(array($eMailUser));
 		
@@ -75,7 +75,7 @@ class USER{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM USER WHERE idStat = ?';
+		$query = 'SELECT * FROM user WHERE idStat = ?';
 		// prepare
 		$allNbUsersByStat = $db->prepare($query);
 		// execute

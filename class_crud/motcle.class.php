@@ -8,7 +8,7 @@ class MOTCLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM MOTCLE WHERE numMotCle = ?';
+		$query = 'SELECT * FROM motcle WHERE numMotCle = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -21,7 +21,7 @@ class MOTCLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM MOTCLE MC INNER JOIN LANGUE LA ON MC.numLang = LA.numLang WHERE numMotCle = ?;';
+		$query = 'SELECT * FROM motcle mc INNER JOIN langue la ON mc.numLang = la.numLang WHERE numMotCle = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -34,7 +34,7 @@ class MOTCLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM MOTCLE';
+		$query = 'SELECT * FROM motcle';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -47,7 +47,7 @@ class MOTCLE{
 		global $db;
 
 		// select
-        $query = 'SELECT * FROM MOTCLE MC INNER JOIN LANGUE LA ON MC.numLang = LA.numLang';
+        $query = 'SELECT * FROM motcle mc INNER JOIN langue la ON mc.numLang = la.numLang';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -59,7 +59,7 @@ class MOTCLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM MOTCLE ORDER BY numLang=?';
+		$query = 'SELECT * FROM motcle ORDER BY numLang=?';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -93,7 +93,7 @@ class MOTCLE{
 		$libLangSelect = substr($numLang, 0, 4);
 		$parmNumLang = $libLangSelect . '%';
 	
-		$requete = "SELECT MAX(numLang) AS numLang FROM MOTCLE WHERE numLang LIKE '$parmNumLang';";
+		$requete = "SELECT MAX(numLang) AS numLang FROM motcle WHERE numLang LIKE '$parmNumLang';";
 		$result = $db->query($requete);
 	
 		if ($result) {
@@ -101,7 +101,7 @@ class MOTCLE{
 			$numLang = $tuple["numLang"];
 			if (is_null($numLang)) {    // New lang dans MOTCLE
 				// Récup dernière PK utilisée
-				$requete = "SELECT MAX(numMoCle) AS numMoCle FROM MOTCLE;";
+				$requete = "SELECT MAX(numMoCle) AS numMoCle FROM motcle;";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
 				$numMoCle = $tuple["numMoCle"];
@@ -113,7 +113,7 @@ class MOTCLE{
 				$numSeq2MoCle = 1;
 			} else {
 				// Récup dernière PK pour FK sélectionnée
-				$requete = "SELECT MAX(numMoCle) AS numMoCle FROM MOTCLE WHERE numLang LIKE '$parmNumLang';";
+				$requete = "SELECT MAX(numMoCle) AS numMoCle FROM motcle WHERE numLang LIKE '$parmNumLang';";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
 				$numMoCle = $tuple["numMoCle"];
@@ -126,7 +126,7 @@ class MOTCLE{
 				$numSeq2MoCle++;
 			}
 	
-			$libMoCleSelect = "MTCL";
+			$libMoCleSelect = "mtcl";
 			// PK reconstituée : MTCL + no seq langue
 			if ($numSeq1MoCle < 10) {
 				$numMoCle = $libMoCleSelect . "0" . $numSeq1MoCle;
@@ -150,7 +150,7 @@ class MOTCLE{
 			$db->beginTransaction();
 
 			// insert
-			$query='INSERT INTO MOTCLE (libMotCle, numLang) VALUES (?, ?)';
+			$query='INSERT INTO motcle (libMotCle, numLang) VALUES (?, ?)';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -163,7 +163,7 @@ class MOTCLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert MOTCLE : ' . $e->getMessage());
+			die('Erreur insert motcle : ' . $e->getMessage());
 		}
 	}
 
@@ -174,7 +174,7 @@ class MOTCLE{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE MOTCLE SET numLang = ?,  libMotCle = ? WHERE numMotCle = ?";
+			$query = "UPDATE motcle SET numLang = ?,  libMotCle = ? WHERE numMotCle = ?";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -185,7 +185,7 @@ class MOTCLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update MOTCLE : ' . $e->getMessage());
+			die('Erreur update motcle : ' . $e->getMessage());
 		}
 	}
 
@@ -196,7 +196,7 @@ class MOTCLE{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM MOTCLE WHERE numMotCle = ?";
+			$query="DELETE FROM motcle WHERE numMotCle = ?";
 			// prepare
 			$request=$db->prepare($query);
 			// execute
@@ -209,7 +209,7 @@ class MOTCLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete MOTCLE : ' . $e->getMessage());
+			die('Erreur delete motcle : ' . $e->getMessage());
 		}
 	}
 }	// End of class

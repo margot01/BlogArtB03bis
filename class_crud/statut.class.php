@@ -8,7 +8,7 @@ class STATUT{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM STATUT WHERE idStat = ?';
+		$query = 'SELECT * FROM statut WHERE idStat = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -21,7 +21,7 @@ class STATUT{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM STATUT;';
+		$query = 'SELECT * FROM statut;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -37,7 +37,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// insert
-			$query='INSERT INTO STATUT (libStat) VALUES (?)';
+			$query='INSERT INTO statut (libStat) VALUES (?)';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -49,7 +49,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert STATUT : ' . $e->getMessage());
+			die('Erreur insert statut : ' . $e->getMessage());
 		}
 	}
 
@@ -60,7 +60,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE STATUT SET libStat=? WHERE idStat=?";
+			$query = "UPDATE statut SET libStat=? WHERE idStat=?";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -72,7 +72,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update STATUT : ' . $e->getMessage());
+			die('Erreur update statut : ' . $e->getMessage());
 		}
 	}
 
@@ -82,7 +82,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM STATUT WHERE idStat = ?";
+			$query="DELETE FROM statut WHERE idStat = ?";
 			// prepare
 			$request=$db->prepare($query);
 			// execute
@@ -96,7 +96,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete STATUT : ' . $e->getMessage());
+			die('Erreur delete statut : ' . $e->getMessage());
 		}
 	}
 }
