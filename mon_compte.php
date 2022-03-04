@@ -8,26 +8,26 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . './util/utilErrOn.php';
-require_once __DIR__ . './util/regex.php';
+require_once './util/utilErrOn.php';
+require_once './util/regex.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . './util/ctrlSaisies.php';
+require_once './util/ctrlSaisies.php';
 // Del accents sur string
-require_once __DIR__ . './util/delAccents.php';
+require_once './util/delAccents.php';
 
 // Insertion classe Membre
-require_once __DIR__ . './class_crud/membre.class.php';
+require_once './class_crud/membre.class.php';
 // Instanciation de la classe Membre
 $monMembre = new MEMBRE();
 
 // Insertion classe Membre
-require_once __DIR__ . './class_crud/user.class.php';
+require_once './class_crud/user.class.php';
 // Instanciation de la classe Membre
 $monUser = new USER();
 
 // Insertion classe Statut
-require_once __DIR__ . './class_crud/statut.class.php';
+require_once './class_crud/statut.class.php';
 // Instanciation de la classe Statut
 $monStatut = new STATUT();
 
@@ -230,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 // Init variables form
-include __DIR__ . './back/membre/initMembre.php';
+include ROOT . '/back/membre/initMembre.php';
 ?>
 
 <!DOCTYPE html>
@@ -278,7 +278,7 @@ include __DIR__ . './back/membre/initMembre.php';
 </head>
 <body>
     <?php
-    require_once __DIR__ . '/front/includes/commons/___headerFront.php';
+    require_once './front/includes/commons/___headerFront.php';
     ?>
     <h1 class = "Mon compte">Mon compte</h1>
 
@@ -446,7 +446,7 @@ include __DIR__ . './back/membre/initMembre.php';
 </section>
 
 <?php
-require_once __DIR__ . '/front/includes/commons/___footerFront.php';
+require_once './front/includes/commons/___footerFront.php';
 ?>
 
 </body>

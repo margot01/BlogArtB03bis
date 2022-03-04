@@ -3,7 +3,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Assistant:wght@300;600&display=swap" rel="stylesheet">
 
-
 <header class="menu-desktop2">
     <div class=menu-desktop>
         
@@ -21,7 +20,7 @@
                 <li>
                     <a href="index1.php">
                         <?php
-                        if ($_COOKIE['statut']){
+                        if (isset($_COOKIE['statut'])){
                             if ($_COOKIE['statut'] == 1){
                                 echo "panneau d'admin";
                             } else {
