@@ -7,16 +7,15 @@
 //
 ////////////////////////////////////////////////////////////
 
+require_once './connect/config.php';
+require_once ROOT . '/util/utilErrOn.php';
 
-require_once __DIR__ . './connect/config.php';
-require_once __DIR__ . './util/utilErrOn.php';
-
-require_once __DIR__ . './util/preparerTags.php';
+require_once ROOT . '/util/preparerTags.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . './util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 // Mise en forme date
-require_once __DIR__ . './util/dateChangeFormat.php';
+require_once ROOT . '/util/dateChangeFormat.php';
 
 
 // Insertion classe Langue 

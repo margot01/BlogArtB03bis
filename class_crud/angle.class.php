@@ -8,7 +8,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM ANGLE WHERE numAngl = ?';
+		$query = 'SELECT * FROM angle WHERE numAngl = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -20,7 +20,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang WHERE numAngl = ?;';
+		$query = 'SELECT * FROM angle an INNER JOIN langue la ON an.numLang = la.numLang WHERE numAngl = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -30,7 +30,7 @@ class ANGLE{
 
 	function get_1LangByAngle( string $numAngl){
 		global $db;
-		$query = 'SELECT * FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ANGLE.numLang WHERE numAngl = ?;';
+		$query = 'SELECT * FROM langue INNER JOIN angle ON langue.numLang = angle.numLang WHERE numAngl = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -42,7 +42,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM ANGLE';
+		$query = 'SELECT * FROM angle';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -54,7 +54,7 @@ class ANGLE{
 		global $db;
 
 		// select
-        $query = 'SELECT * FROM ANGLE AN INNER JOIN LANGUE LA ON AN.numLang = LA.numLang';
+        $query = 'SELECT * FROM angle an INNER JOIN langue la ON an.numLang = la.numLang';
 		// prepare
         $result = $db->query($query);
 		// execute
@@ -75,7 +75,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM ANGLE ORDER BY libAngl;';
+		$query = 'SELECT * FROM angle ORDER BY libAngl;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -88,7 +88,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM ANGLE WHERE numLang = ?';
+		$query = 'SELECT * FROM angle WHERE numLang = ?';
 		// prepare
 		$allNbAnglesBynumLang = $db->prepare($query);
 		// execute
@@ -105,7 +105,7 @@ class ANGLE{
 		$libLangSelect = substr($numLang, 0, 4);
 		$parmNumLang = $libLangSelect . '%';
 	
-		$requete = "SELECT MAX(numLang) AS numLang FROM ANGLE WHERE numLang LIKE '$parmNumLang';";
+		$requete = "SELECT MAX(numLang) AS numLang FROM angle WHERE numLang LIKE '$parmNumLang';";
 		$result = $db->query($requete);
 	
 		if ($result) {
@@ -125,7 +125,7 @@ class ANGLE{
 				$numSeq2Angl = 1;
 			} else {
 				// Récup dernière PK pour FK sélectionnée
-				$requete = "SELECT MAX(numAngl) AS numAngl FROM ANGLE WHERE numLang LIKE '$parmNumLang' ;";
+				$requete = "SELECT MAX(numAngl) AS numAngl FROM angle WHERE numLang LIKE '$parmNumLang' ;";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
 				$numAngl = $tuple["numAngl"];
@@ -138,7 +138,7 @@ class ANGLE{
 				$numSeq2Angl++;
 			}
 	
-			$libAnglSelect = "ANGL";
+			$libAnglSelect = "angl";
 			// PK reconstituée : ANGL + no seq langue
 			if ($numSeq1Angl < 10) {
 				$numAngl = $libAnglSelect . "0" . $numSeq1Angl;
@@ -162,7 +162,7 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO ANGLE (numAngl, libAngl, numLang) VALUES (?, ?, ?)';
+			$query = 'INSERT INTO angle (numAngl, libAngl, numLang) VALUES (?, ?, ?)';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -173,7 +173,7 @@ class ANGLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert ANGLE : ' . $e->getMessage());
+			die('Erreur insert angle : ' . $e->getMessage());
 		}
 	}
 
@@ -184,7 +184,7 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE ANGLE SET numLang = ?,  libAngl = ? WHERE numAngl = ?";
+			$query = "UPDATE angle SET numLang = ?,  libAngl = ? WHERE numAngl = ?";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -195,7 +195,7 @@ class ANGLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update ANGLE : ' . $e->getMessage());
+			die('Erreur update angle : ' . $e->getMessage());
 		}
 	}
 
@@ -207,7 +207,7 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM ANGLE WHERE numAngl = ?";
+			$query="DELETE FROM angle WHERE numAngl = ?";
 			// prepare
 			$request=$db->prepare($query);
 			// execute
@@ -220,7 +220,7 @@ class ANGLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete ANGLE : ' . $e->getMessage());
+			die('Erreur delete angle : ' . $e->getMessage());
 		}
 	}
 }		// End of class

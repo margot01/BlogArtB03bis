@@ -91,9 +91,16 @@ include __DIR__ . '/initAngle.php';
     </style>
 </head>
 
+<<<<<<< HEAD
 <!-- section pour ajouter le header sans qu'il gene avec le location-->
 <section> 
 <?php require_once ROOT . '/front/includes/commons/___headerFront.php'; ?>
+=======
+<section>
+    <?php 
+    require_once ROOT . '/front/includes/commons/___headerFront.php';
+    ?>
+>>>>>>> b158bc0f5ab88d29ecd0048c64109384858b7d59
 </section>
 
 <body>
