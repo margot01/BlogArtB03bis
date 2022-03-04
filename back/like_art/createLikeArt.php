@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
             $monLikeArt->create($numMemb, $numArt, $likeA);
     
-            //header("Location: ./likeArt.php");
+    header("Location: ./likeArt.php");
         }   
         else {
             // Saisies invalides
