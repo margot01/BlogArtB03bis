@@ -250,7 +250,7 @@ include __DIR__ . '/initArticle.php';
         <div class="control-group">
             <label class="control-label" for="libTitrArt"><b>Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <input type="text" name="libTitrArt" id="libTitrArt" size="100" maxlength="100" value="<?php echo $libTitrArt; ?>" tabindex="10" placeholder="Sur 100 car." autofocus="autofocus" />
+                <input type="text" name="libTitrArt" id="libTitrArt" size="100" maxlength="100" value="<?php echo $libTitrArt; ?>" tabindex="10" placeholder="Sur 100 car." autofocus="autofocus"  />
             </div>
         </div>
 
@@ -266,7 +266,7 @@ include __DIR__ . '/initArticle.php';
         <div class="control-group">
             <label class="control-label" for="libChapoArt"><b>Chapeau :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="libChapoArt" id="libChapoArt" rows="10" cols="100" tabindex="30" placeholder="?" ><?php echo $libChapoArt; ?></textarea>
+                <textarea name="libChapoArt" id="libChapoArt" rows="10" cols="100" tabindex="30" placeholder="?" > <?php echo $libChapoArt; ?></textarea>
             </div>
         </div>
 
@@ -282,7 +282,7 @@ include __DIR__ . '/initArticle.php';
         <div class="control-group">
             <label class="control-label" for="parag1Art"><b>Paragraphe 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="parag1Art" id="parag1Art" rows="10" cols="100" tabindex="50" placeholder="Décrivez le premier paragraphe. Sur 1200 car." ><?php echo $parag1Art; ?></textarea>
+                <textarea name="parag1Art" id="parag1Art" rows="10" cols="100" tabindex="50" placeholder="Décrivez le premier paragraphe. Sur 1200 car." ><?php echo $parag1Art; ?> </textarea>
             </div>
         </div>
 
@@ -314,7 +314,7 @@ include __DIR__ . '/initArticle.php';
         <div class="control-group">
             <label class="control-label" for="parag3Art"><b>Paragraphe 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="parag3Art" id="parag3Art" rows="10" cols="100" tabindex="90" placeholder="Décrivez le troisième paragraphe. Sur 1200 car." ><?php echo $parag3Art; ?></textarea>
+                <textarea name="parag3Art" id="parag3Art" rows="10" cols="100" tabindex="90" placeholder="Décrivez le troisième paragraphe. Sur 1200 car."><?php echo $parag3Art; ?></textarea>
             </div>
         </div>
 
@@ -343,11 +343,11 @@ include __DIR__ . '/initArticle.php';
  
                <!-- Listbox langue => 2ème temps -->
  
-                <select size="1" name="Langue" id="Langue"  class="form-control form-control-create" title="Sélectionnez la langue !" onchange='change()' >
+                <select size="1" name="Langue" id="Langue"  class="form-control form-control-create" title="Sélectionnez la langue !" onload='change()' >
                 <?php
                     $LangByAngle = $monAngle->get_1LangByAngle($numAngl);
                 ?>
-                   <option value="-1"> <?php  ($LangByAngle ['numLang']);?> <?php echo $LangByAngle['lib1Lang']; ?></option>
+                  <option value="-1"> <?php  ($LangByAngle ['numLang']);?> <?php echo $LangByAngle['lib1Lang']; ?></option>
  
  
                </select>
@@ -495,7 +495,7 @@ require_once ROOT . '/front/includes/commons/___footerFront.php';
 			}
 
 			// Traitement en POST
-			xhrangl.open("POST","./ajaxAngleCreate.php",true);
+			xhrangl.open("POST","./ajaxAngleUpdate.php",true);
 			// pour le post
 			xhrangl.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numLang
@@ -516,7 +516,7 @@ require_once ROOT . '/front/includes/commons/___footerFront.php';
 			}
 
 			// Traitement en POST
-			xhrthem.open("POST","./ajaxThematiqueCreate.php",true);
+			xhrthem.open("POST","./ajaxThematiqueUpdate.php",true);
 			// pour le post
 			xhrthem.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numLang
