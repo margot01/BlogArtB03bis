@@ -129,6 +129,7 @@ h1 .crud{
 .troisPetitsArticles{
     display:flex;
     justify-content:center;
+    text-align: center;
 }
 
 .troisPetitsArticles a .onveutpastevoir{
@@ -136,6 +137,20 @@ h1 .crud{
 }
 
 .troisPetitsArticles a{
+    display:inline;
+    margin: 0 60px;
+}
+
+.troisPetitsArticles2{
+    display:inline-block;
+    justify-content:center;
+}
+
+.troisPetitsArticles2 a .onveutpastevoir{
+    display: none;
+}
+
+.troisPetitsArticles2 a{
     display:inline;
     margin: 0 60px;
 }

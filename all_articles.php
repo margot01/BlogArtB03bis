@@ -53,7 +53,7 @@ require_once './front/includes/commons/___headerFront.php';
         <?php } ?>
     </a>
     
-    <div class="troisPetitsArticles">
+    <div class="troisPetitsArticles2">
     <?php foreach($allArticles as $ligne) {
         $idSelectArt=$ligne['numArt'];
         ?> <a href="article_front.php?id=<?php echo $idSelectArt?>"> <?php
@@ -70,32 +70,20 @@ require_once './front/includes/commons/___headerFront.php';
             
             <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div> 
-        <?php } else { 
-            if ($i == 4 OR $i==7 OR $i==10 OR $i==13 OR $i==16 OR $i==19 OR $i==22){ ?>
-                <div class="sautdeligne">
-                    <div>
-                        <h3> <?php echo $titre; ?> </h3>
-                        <p> <?php echo $date ; ?> </p>
-                        <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
-                        
-                        <p> <?php echo $chapeau . "<br>"; ?> </p>
-                    </div>
-                </div>
-            <?php } else { ?>
-                <div>
-                    <h3> <?php echo $titre; ?> </h3>
-                    <p> <?php echo $date ; ?> </p>
-                    <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
-                    
-                    <p> <?php echo $chapeau . "<br>"; ?> </p>
-                </div>
-            <?php } 
-        }
 
+        <?php } else { ?>
+            <div>
+                <h3> <?php echo $titre; ?> </h3>
+                <p> <?php echo $date ; ?> </p>
+                <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+                
+                <p> <?php echo $chapeau . "<br>"; ?> </p>
+            </div>
+            <?php 
+            }
         $i = $i+1;
-        ?> </a> <?php
-    } 
-    ?>
+        }
+        ?> </a>
     </div>
 
 </section>

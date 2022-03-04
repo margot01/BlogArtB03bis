@@ -27,7 +27,7 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 <html lang="fr-FR">
 
 <head>
-    <title>Gestion des CRUD</title>
+    <title>Brrrdeaux - Paranormal à Bordeaux</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />

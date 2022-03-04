@@ -363,20 +363,43 @@ include __DIR__ . '/initArticle.php';
         <!-- FK : Angle, Thématique + TJ Mots Clés -->
     <!-- --------------------------------------------------------------- -->
     <!-- --------------------------------------------------------------- -->
-    <!-- Listbox angle -->
-    <br/><br/>
-      	  <label><b>&nbsp;&nbsp;&nbsp;Quel angle :&nbsp;&nbsp;</b></label>
-		  <div id='TypAngl' style='display:inline'>
-      	    <select size="1" name="TypAngl" title="Sélectionnez l'angle !" style="padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;">
-              <option value='-1'><?= $monAngle -> get_1Angle($numAngl)['libAngl'] ?></option>
+    <!-- Listbox Angle -->
+    <br>
+           <div class="control-group">
+               <div class="controls">
+               <label class="control-label" for="LibTypAngl" title="Sélectionnez l'angle !">
+                   <b>Quel angle :&nbsp;&nbsp;&nbsp;</b>
+               </label>
+ 
+               <!-- Listbox Angle => 2ème temps -->
 
-                </select>
-      	    </select>
-      	  </div>
-      	  <br /><br /><br />
-		</fieldset>
-		<br/><br/>
-		</form>
+               <input type="hidden" id="idTypThem" name="idTypThem" value="<?= $numThem; ?>" />
+                   <select size="1" name="TypAngl" id="TypAngl"  class="form-control form-control-create" title="Sélectionnez l'angle !" >
+ 
+               <?php
+                   $listNumAngl = "";
+                   $listlibAngl = "";
+ 
+                   $result = $monAngle-> get_AllAnglesByLang();
+                   if($result){
+                       foreach($result as $row) {
+                           $listNumAngl= $row["numAngl"];
+                           $listlibAngl = $row["libAngl"];
+               ?>
+                           <option value="<?= $listNumAngl; ?>"<?php ((isset($numAngl) && $numAngl == $listNumAngl) ? " selected='selected'" : null); ?>>
+                               <?= $listlibAngl; ?>
+                           </option>
+               <?php
+                       } // End of foreach
+                   }   // if ($result)
+               ?>
+ 
+               </select>
+ 
+               </div>
+           </div>
+       <!-- FIN Listbox Angle -->
+
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
  
@@ -384,21 +407,45 @@ include __DIR__ . '/initArticle.php';
     <!-- --------------------------------------------------------------- -->
     <!-- --------------------------------------------------------------- -->
 
+<!-- Listbox Thématique -->
+ 
+<br>
+           <div class="control-group">
+               <div class="controls">
+               <label class="control-label" for="LibTypThem" title="Sélectionnez la thematique !">
+                   <b>Quelle thematique :&nbsp;&nbsp;&nbsp;</b>
+               </label>
+ 
+               <!-- Listbox Thématique=> 2ème temps -->
 
+               <input type="hidden" id="idTypThem" name="idTypThem" value="<?= $numThem; ?>" />
+                   <select size="1" name="TypThem" id="TypThem"  class="form-control form-control-create" title="Sélectionnez la thematique !" >
+ 
+               <?php
+                   $listNumThem = "";
+                   $listlibThem = "";
+ 
+                   $result = $maThematique->get_AllThematiquesByLang ();
+                   if($result){
+                       foreach($result as $row) {
+                           $listNumThem= $row["numThem"];
+                           $listlibThem = $row["libThem"];
+               ?>
+                           <option value="<?= $listNumThem; ?>" <?php ((isset($numThem) && $numThem == $listNumThem) ? " selected='selected'" : null); ?>>
+                               <?= $listlibThem; ?>
+                           </option>
+               <?php
+                       } // End of foreach
+                   }   // if ($result)
+               ?>
+ 
+               </select>
+ 
+               </div>
+           </div>
+              
+       <!-- FIN Listbox Thematique-->
 
-
-      <!-- Listbox thematique -->
-        <br/><br/>
-      	  <label><b>&nbsp;&nbsp;&nbsp;Quel thematique :&nbsp;&nbsp;</b></label>
-		  <div id='TypThem' style='display:inline'>
-      	    <select size="1" name="TypThem" title="Sélectionnez la thematique !" style="padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;">
-			  <option value='-1'>- - - Choissisez une thematique - - -</option>
-      	    </select>
-      	  </div>
-      	  <br /><br /><br />
-		</fieldset>
-		<br/><br/>
-		</form>
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Drag and drop Mot Clé -->
@@ -462,71 +509,5 @@ include __DIR__ . '/initArticle.php';
 require_once ROOT . '/front/includes/commons/___footerFront.php';
 
 ?>
-<!-- Script JS/AJAX -->
-<script type='text/javascript'>
-		function getXhr() {
-      		var xhr = null;
-			if(window.XMLHttpRequest){ // Firefox & autres
-			   xhr = new XMLHttpRequest();
-			}else
-				if(window.ActiveXObject){ // IE / Edge
-				   try {
-						xhr = new ActiveXObject("Msxml2.XMLHTTP");
-				   }catch(e){
-						xhr = new ActiveXObject("Microsoft.XMLHTTP");
-				   }
-				}else{
-				   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
-				   xhr = false;
-				}
-        	return xhr;
-		}	// End of function
-
-		/**
-		* Méthode appelée sur le click du bouton/listbox
-		*/
-		function change() {
-			var xhrangl = getXhr();
-			// On définit quoi faire quand réponse reçue
-			xhrangl.onreadystatechange = function() {
-				// test si tout est reçu et si serveur est ok
-				if(xhrangl.readyState == 4 && xhrangl.status == 200){
-					di = document.getElementById('TypAngl');
-					di.innerHTML = xhrangl.responseText;
-				}
-			}
-
-			// Traitement en POST
-			xhrangl.open("POST","./ajaxAngleUpdate.php",true);
-			// pour le post
-			xhrangl.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-			// poster arguments : ici, numLang
-			numLang = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
-
-			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
-			xhrangl.send("numLang="+numLang);
-
-//Thematique
-            var xhrthem = getXhr();
-			// On définit quoi faire quand réponse reçue
-			xhrthem.onreadystatechange = function() {
-				// test si tout est reçu et si serveur est ok
-				if(xhrthem.readyState == 4 && xhrthem.status == 200){
-					di = document.getElementById('TypThem');
-					di.innerHTML = xhrthem.responseText;
-				}
-			}
-
-			// Traitement en POST
-			xhrthem.open("POST","./ajaxThematiqueUpdate.php",true);
-			// pour le post
-			xhrthem.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-			// poster arguments : ici, numLang
-			numLang = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
-
-			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
-			xhrthem.send("numLang="+numLang);
-		}	// End of function
-  </script>
 </body>
 </html>
