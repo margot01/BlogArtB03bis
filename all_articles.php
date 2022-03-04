@@ -8,11 +8,11 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/connect/config.php';
-require_once __DIR__ . '/util/utilErrOn.php';
+require_once './connect/config.php';
+require_once './util/utilErrOn.php';
 
 // Insertion classe Langue 
-require_once ROOT . '/class_crud/article.class.php';
+require_once './class_crud/article.class.php';
 // Instanciation de la classe angle
 $monArticle = new ARTICLE();
 ?>
@@ -20,7 +20,7 @@ $monArticle = new ARTICLE();
 <link rel="stylesheet" href="<?php echo(ROOTFRONT . '/back/css/style.css');?>">
 
 <?php
-require_once ROOT . '/front/includes/commons/___headerFront.php';
+require_once './front/includes/commons/___headerFront.php';
 ?>
 
 <!DOCTYPE html>
@@ -70,16 +70,28 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
             
             <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div> 
-        <?php } else { ?>
-        
-            <div>
-            <h3> <?php echo $titre; ?> </h3>
-            <p> <?php echo $date ; ?> </p>
-            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
-            
-            <p> <?php echo $chapeau . "<br>"; ?> </p>
-            </div>
-        <?php } 
+        <?php } else { 
+            if ($i == 4 OR $i==7 OR $i==10 OR $i==13 OR $i==16 OR $i==19 OR $i==22){ ?>
+                <div class="sautdeligne">
+                    <div>
+                        <h3> <?php echo $titre; ?> </h3>
+                        <p> <?php echo $date ; ?> </p>
+                        <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+                        
+                        <p> <?php echo $chapeau . "<br>"; ?> </p>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <div>
+                    <h3> <?php echo $titre; ?> </h3>
+                    <p> <?php echo $date ; ?> </p>
+                    <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+                    
+                    <p> <?php echo $chapeau . "<br>"; ?> </p>
+                </div>
+            <?php } 
+        }
+
         $i = $i+1;
         ?> </a> <?php
     } 

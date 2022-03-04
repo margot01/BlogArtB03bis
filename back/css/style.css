@@ -140,6 +140,10 @@ h1 .crud{
     margin: 0 60px;
 }
 
+.sautdeligne{
+    display:block;
+}
+
 .formulaire h2{
 	background-color: #f1f2f2; 
     color:#263d57;
