@@ -6,6 +6,9 @@
 //  Script  : createMembre.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
+ini_set('display_errors','on');
+ini_set('display_startup_errors','on');
+error_reporting(E_ALL);
 
 // Mode DEV
 require_once './util/utilErrOn.php';
@@ -230,7 +233,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 // Init variables form
-include ROOT . '/back/membre/initMembre.php';
+include  './back/membre/initMembre.php';
 ?>
 
 <!DOCTYPE html>
