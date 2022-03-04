@@ -4,7 +4,7 @@
 require_once __DIR__ . '../../connect/database.php';
 
 class MOTCLEARTICLE{
-	function get_AllMotClesByNumArt($numArt){
+	/*function get_AllMotClesByNumArt($numArt){
 		global $db;
 
 		// select
@@ -30,12 +30,12 @@ class MOTCLEARTICLE{
 		// execute
 		return($allCommentsByArt);
 	}
-
+*/
 	function get_NbAllArtsByNumMotCle($numMotCle){
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM MOTCLEARTICLE WHERE numMotCle = ?';
+		$query = 'SELECT * FROM motclearticle WHERE numMotCle = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -44,7 +44,7 @@ class MOTCLEARTICLE{
 		return($count);
 	}
 
-	function get_AllArtsByLibMotCle($libMotCle){
+	/*function get_AllArtsByLibMotCle($libMotCle){
 		global $db;
 
 		// select
@@ -68,7 +68,7 @@ class MOTCLEARTICLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert MOTCLEARTICLE : ' . $e->getMessage());
+			die('Erreur insert motclearticle : ' . $e->getMessage());
 		}
 	}
 
@@ -87,7 +87,7 @@ class MOTCLEARTICLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete MOTCLEARTICLE : ' . $e->getMessage());
+			die('Erreur delete motclearticle : ' . $e->getMessage());
 		}
-	}
+	}*/
 }	// End of class

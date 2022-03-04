@@ -24,7 +24,8 @@ if (isset($TypLang)) {
 
 	if ($allThematiquesByLang) {
 ?>
-			<option value='-1'>- - - Choisissez une thematique - - -</option>
+        <option value='-1'><?= $monAngle -> get_1Angle($numAngl)['libAngl'] ?></option>
+
 <?php
 			foreach($allThematiquesByLang as $row){
 ?>

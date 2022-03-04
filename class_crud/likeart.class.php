@@ -8,7 +8,7 @@ class LIKEART{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LIKEART WHERE numMemb = ? AND numArt = ?';
+		$query = 'SELECT * FROM likeart WHERE numMemb = ? AND numArt = ?';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -20,7 +20,7 @@ class LIKEART{
 		global $db;
 	
 		// select
-		$query = "SELECT * FROM LIKEART LKA , ARTICLE ART , MEMBRE ME WHERE LKA.numMemb = ME.numMemb AND LKA.numArt = ART.numArt";
+		$query = "SELECT * FROM likeart lka , article art , membre me WHERE lka.numMemb = me.numMemb AND lka.numArt = art.numArt";
 		// prepare
 		$result=$db->query($query);
 		// execute
@@ -31,7 +31,7 @@ class LIKEART{
 	function get_AllLikesArtByNumArt(){
 		global $db;
 
-		$query = 'SELECT * FROM LIKEART LKA INNER JOIN ARTICLE ART ON LKA.numArt = ART.numArt';
+		$query = 'SELECT * FROM LIKEART LKA INNER JOIN article art ON lka.numArt = art.numArt';
 		$result = $db->query($query);
 		$allLikesArtByNumArt = $result->fetchAll();
 		return($allLikesArtByNumArt);
@@ -40,7 +40,7 @@ class LIKEART{
 	function get_AllLikesArtByNumMemb(){
 		global $db;
 
-		$query = 'SELECT * FROM LIKEART LKA INNER JOIN MEMBRE ME ON ME.numMemb = LKA.numMemb';
+		$query = 'SELECT * FROM likeart lka INNER JOIN membre me ON me.numMemb = lka.numMemb';
 		$result = $db->query($query);
 		$allLikesArtByNumMemb = $result->fetchAll();
 		return($allLikesArtByNumMemb);
@@ -50,7 +50,7 @@ class LIKEART{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LIKEART WHERE numArt = ?';
+		$query = 'SELECT * FROM likeart WHERE numArt = ?';
 		// prepare
 		$allNbLikesArtByArticle = $db->prepare($query);
 		// execute
@@ -62,7 +62,7 @@ class LIKEART{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LIKEART WHERE numMemb = ?';
+		$query = 'SELECT * FROM likeart WHERE numMemb = ?';
 		// prepare
 		$allNbLikesArtByMembre = $db->prepare($query);
 		// execute
@@ -77,7 +77,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// insert
-			$query='INSERT INTO LIKEART (numMemb, numArt, likeA) VALUES (?, ?, ?)';
+			$query='INSERT INTO likeart (numMemb, numArt, likeA) VALUES (?, ?, ?)';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -89,7 +89,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert LIKEART : ' . $e->getMessage());
+			die('Erreur insert likeart : ' . $e->getMessage());
 		}
 	}
 
@@ -100,7 +100,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE LIKEART SET likeA = ? WHERE numMemb = ? AND numArt = ?";
+			$query = "UPDATE likeart SET likeA = ? WHERE numMemb = ? AND numArt = ?";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -111,7 +111,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LIKEART : ' . $e->getMessage());
+			die('Erreur update likeart : ' . $e->getMessage());
 		}
 	}
 
@@ -123,7 +123,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// insert / update
-			$query = "INSERT INTO LIKEART (numMemb, numArt, likeA) VALUES (?, ?, 1) ON DUPLICATE KEY UPDATE likeA = !likeA";
+			$query = "INSERT INTO likeart (numMemb, numArt, likeA) VALUES (?, ?, 1) ON DUPLICATE KEY UPDATE likeA = !likeA";
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -146,7 +146,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM LIKEART WHERE numMemb = ? AND numArt= ?";
+			$query="DELETE FROM likeart WHERE numMemb = ? AND numArt= ?";
 			//prepare
 			$request=$db->prepare($query);
 			// execute
@@ -159,7 +159,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LIKEART : ' . $e->getMessage());
+			die('Erreur delete likeart : ' . $e->getMessage());
 		}
 	}
 }	// End of class

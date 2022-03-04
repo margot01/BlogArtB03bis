@@ -16,15 +16,17 @@
                     <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=apropos>a propos</a>
                 </li>
                 <li class="menu-articles">
-                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=articles>articles</a>
+                    <a href="<?php echo(ROOTFRONT . '/all_articles.php')?>" class=articles>articles</a>
                 </li>
                 <li>
                     <a href="index1.php">
                         <?php
-                        if ($_COOKIE['statut'] == 1){
-                            echo "panneau d'admin";
-                        } else {
-                            echo "&nbsp";
+                        if ($_COOKIE['statut']){
+                            if ($_COOKIE['statut'] == 1){
+                                echo "panneau d'admin";
+                            } else {
+                                echo "&nbsp";
+                            }
                         }
                         ?>
                     </a>

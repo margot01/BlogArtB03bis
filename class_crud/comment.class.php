@@ -62,7 +62,7 @@ class COMMENT{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM COMMENT WHERE numMemb = ?';
+		$query = 'SELECT * FROM comment WHERE numMemb = ?';
 		// prepare
 		$allNbAllCommentsBynumMemb = $db->prepare($query);
 		// execute

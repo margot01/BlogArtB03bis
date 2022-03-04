@@ -8,7 +8,7 @@ class THEMATIQUE{
 		global $db;
 
 	// select
-	$query = 'SELECT * FROM THEMATIQUE WHERE numThem = ?';
+	$query = 'SELECT * FROM thematique WHERE numThem = ?';
 	// prepare
 	$result = $db->prepare($query);
 	// execute
@@ -20,7 +20,7 @@ class THEMATIQUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM THEMATIQUE THE INNER JOIN LANGUE LA ON THE.numLang = LA.numLang WHERE numThem = ?;';
+		$query = 'SELECT * FROM thematique the INNER JOIN langue la ON the.numLang = la.numLang WHERE numThem = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -32,7 +32,7 @@ class THEMATIQUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM THEMATIQUE';
+		$query = 'SELECT * FROM thematique';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -45,7 +45,7 @@ class THEMATIQUE{
 		global $db;
 
 		// select
-        $query = 'SELECT * FROM THEMATIQUE TH INNER JOIN LANGUE LA ON TH.numLang = LA.numLang';
+        $query = 'SELECT * FROM thematique th INNER JOIN langue la ON th.numLang = la.numLang';
 		// prepare
         $result = $db->query($query);
 		// execute
@@ -57,7 +57,7 @@ class THEMATIQUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM THEMATIQUE ORDER BY libThem;';
+		$query = 'SELECT * FROM thematique ORDER BY libThem;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -68,7 +68,7 @@ class THEMATIQUE{
 	function get_AllLanguesOrderByLibLang(){
         global $db;
 
-        $query = 'SELECT * FROM LANGUE ORDER BY lib1Lang;';
+        $query = 'SELECT * FROM langue ORDER BY lib1Lang;';
         $result = $db->query($query);
         $allLanguesOrderByLibLang = $result->fetchAll();
         return($allLanguesOrderByLibLang);
@@ -77,7 +77,7 @@ class THEMATIQUE{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM THEMATIQUE WHERE numLang = ?';
+		$query = 'SELECT * FROM thematique WHERE numLang = ?';
 		// prepare
 		$allNbThematiqueBynumLang = $db->prepare($query);
 		// execute
@@ -94,7 +94,7 @@ class THEMATIQUE{
 		$libLangSelect = substr($numLang, 0, 4);
 		$parmNumLang = $libLangSelect . '%';
 	
-		$requete = "SELECT MAX(numLang) AS numLang FROM THEMATIQUE WHERE numLang LIKE '$parmNumLang';";
+		$requete = "SELECT MAX(numLang) AS numLang FROM thematique WHERE numLang LIKE '$parmNumLang';";
 		$result = $db->query($requete);
 	
 		if ($result) {
@@ -102,7 +102,7 @@ class THEMATIQUE{
 			$numLang = $tuple["numLang"];
 			if (is_null($numLang)) {    // New lang dans THEMATIQUE
 				// Récup dernière PK utilisée
-				$requete = "SELECT MAX(numThem) AS numThem FROM THEMATIQUE;";
+				$requete = "SELECT MAX(numThem) AS numThem FROM thematique;";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
 				$numThem = $tuple["numThem"];
@@ -114,7 +114,7 @@ class THEMATIQUE{
 				$numSeq2Them = 1;
 			} else {
 				// Récup dernière PK pour FK sélectionnée
-				$requete = "SELECT MAX(numThem) AS numThem FROM THEMATIQUE WHERE numLang LIKE '$parmNumLang' ;";
+				$requete = "SELECT MAX(numThem) AS numThem FROM thematique WHERE numLang LIKE '$parmNumLang' ;";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
 				$numThem = $tuple["numThem"];
@@ -127,7 +127,7 @@ class THEMATIQUE{
 				$numSeq2Them++;
 			}
 	
-			$libThemSelect = "THEM";
+			$libThemSelect = "them";
 			// PK reconstituée : THE + no seq langue
 			if ($numSeq1Them < 10) {
 				$numThem = $libThemSelect . "0" . $numSeq1Them;
@@ -151,7 +151,7 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO THEMATIQUE (numThem, libThem, numLang) VALUES (?, ?, ?)';
+			$query = 'INSERT INTO thematique (numThem, libThem, numLang) VALUES (?, ?, ?)';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -163,7 +163,7 @@ class THEMATIQUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert THEMATIQUE : ' . $e->getMessage());
+			die('Erreur insert thematique : ' . $e->getMessage());
 		}
 	}
 
@@ -174,7 +174,7 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE THEMATIQUE SET libThem = ?, numLang = ? WHERE numThem = ?;"; //se référencer à la photo de toutes les tables (clé primaire, étrangères,...)
+			$query = "UPDATE thematique SET libThem = ?, numLang = ? WHERE numThem = ?;"; //se référencer à la photo de toutes les tables (clé primaire, étrangères,...)
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -186,7 +186,7 @@ class THEMATIQUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update THEMATIQUE : ' . $e->getMessage());
+			die('Erreur update thematique : ' . $e->getMessage());
 		}
 	}
 
@@ -198,7 +198,7 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// delete
-			$query="DELETE FROM THEMATIQUE WHERE numThem = ?";
+			$query="DELETE FROM thematique WHERE numThem = ?";
 			// prepare
 			$request=$db->prepare($query);
 			// execute
@@ -212,7 +212,7 @@ class THEMATIQUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete THEMATIQUE : ' . $e->getMessage());
+			die('Erreur delete thematique : ' . $e->getMessage());
 		}
 	}
 }		// End of class
