@@ -56,8 +56,9 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
         $i=1;
     ?>
 
-    <a href="/front/includes/commons/article_front.php">
-    <?php foreach($dernierArticle as $row) {?>
+    <?php foreach($dernierArticle as $row) {
+        $id=$row['numArt'];?>
+        <a href="article_front.php?id=<?php echo $id?>" class="grosArticle">
         <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>" alt="image de l'article"/>
         <h3> <?php echo $row["libTitrArt"] ?> </h3>
         <p> <?php echo $row["dtCreArt"] ?> </p>
@@ -65,29 +66,31 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
         <?php } ?>
     </a>
     
+    <div class="troisPetitsArticles">
     <?php foreach($allArticles as $ligne) {
+        $idSelectArt=$ligne['numArt'];
+        ?> <a href="article_front.php?id=<?php echo $idSelectArt?>"> <?php
+        $titre= $ligne['libTitrArt'];
+        $date=$ligne['dtCreArt'];
+        $chapeau=$ligne['libChapoArt'];
+        $image=$ligne['urlPhotArt'];
+
         if ($i == 1){
             $image = $ligne['urlPhotArt']; ?> 
         <?php } else { ?>
+        
             <div>
-            
-            <?php $image=$row['urlPhotArt']; 
-            $titre= $row['libTitrArt'];
-            $date=$row['dtCreArt'];
-            $chapeau=$row['libChapoArt'];
-            ?>
-
-        <h3> <?php echo $titre; ?> </h3>
-        <p> <?php echo $date ; ?> </p>
-        <img class=img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $image) ;?>" alt="image de l'article"/> <br/>
-            <p> <?php
-            echo $chapeau . "<br>";
-            ?> </p>
+            <h3> <?php echo $titre; ?> </h3>
+            <p> <?php echo $date ; ?> </p>
+            <img class=img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $image) ;?>" alt="image de l'article"/> <br/>
+            <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div>
-            <?php } 
+        <?php } 
         $i = $i+1;
+        ?> </a> <?php
     } 
     ?>
+    </div>
 
 </section>
 
