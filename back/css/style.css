@@ -9,6 +9,17 @@ body {
 	color: #f1f2f2;
 }
 
+table{
+    color:#0e1a24;
+}
+
+body h4{
+    color:#0e1a24
+}
+
+body th{
+    color:#0e1a24;
+}
 h1{
 	font-family: 'Amarante', sans-serif;
 	font-size:48px;
@@ -40,6 +51,10 @@ p{
 a{
     color:#f1f2f2;
     text-decoration: none;
+}
+
+a i{
+    color:#263d57;
 }
 
 h1 .crud{
