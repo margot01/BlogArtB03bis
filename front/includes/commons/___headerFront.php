@@ -57,9 +57,6 @@
                         </div>
                     </form>
                 </li>
-                <!-- <li>
-                    <a href="construction.html">Nous soutenir</a>
-                </li> -->
             </ul>
         </nav>
     </div>

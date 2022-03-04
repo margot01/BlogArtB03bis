@@ -27,9 +27,7 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    //Opérateur ternaire
-    //$Submit = isset($_POST(['Submit'])) ? $_POST['Submit'] : '';
-    //ou
+
 
 
     if(isset($_POST['Submit'])){
@@ -180,9 +178,7 @@ include __DIR__ . '/initStatut.php';
     </div>
 
 <?php
-/*require_once __DIR__ . '/footerStatut.php';
 
-require_once __DIR__ . '/footer.php';*/
 
 require_once ROOT . '/front/includes/commons/___footerFront.php';
 

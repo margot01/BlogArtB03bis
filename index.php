@@ -42,9 +42,12 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 
 <section class="presentation">
     <p>
-        Postremo ad id indignitatis est ventum, ut cum peregrini ob formidatam haut ita dudum alimentorum 
-        inopiam pellerentur ab urbe praecipites, sectatoribus disciplinarum liberalium inpendio paucis sine 
-        respiratione ulla extrusis, tenerentur minimarum adseclae veri, quique id simularun
+        La question de la vie après la mort interroge depuis toujours l'être humain. Sommes-nous voués à
+        disparaître entièrement de cette planète ou bien un monde invisible dont nous ignorons tout nous attend-il 
+        de l'autre côté du tunnel? Les faits inexplicables, le surnaturel, est un sujet qui nous fascine autant qu'il 
+        nous effraie. A travers Brrrdeaux, nous allons tenter de partager toutes les histoires, mythes, légendes et 
+        mystères qui entourent notre belle ville de Bordeaux. 
+ 
     </p>
 </section>
 

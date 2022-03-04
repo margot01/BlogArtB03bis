@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="description" content="un texte">
     <title>graou</title>
-    <!-- <link rel="stylesheet" href="/assets/css/bootstrap.css"> -->
-    <!-- <link rel="stylesheet" href="/assets/css/main.css"> -->
+
     
 <link rel="stylesheet" href="../../front/assets/css/header.css">
 <link rel="stylesheet" href="../../front/assets/css/footer.css">

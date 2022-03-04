@@ -1,8 +1,5 @@
 <?php
-/*
-*   Script : ajaxThematiqueCreate.php
-*   Example : 2 listbox dynamiques liées via AJAX
-*/
+
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 // connexion

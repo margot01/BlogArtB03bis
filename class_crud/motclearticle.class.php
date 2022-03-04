@@ -4,33 +4,7 @@
 require_once __DIR__ . '../../connect/database.php';
 
 class MOTCLEARTICLE{
-	/*function get_AllMotClesByNumArt($numArt){
-		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allCommentsByArt);
-	}
-
-	function get_AllMotClesByLibTitrArt($libTitrArt){
-		global $db;
-
-		// select
-		// prepare
-		// execute
-		return($allCommentsByArt);
-	}
-
-	function get_AllArtsByNumMotCle($numMotCle){
-		global $db;
-
-		// select
-		// prepare
-		// execute
-		return($allCommentsByArt);
-	}
-*/
 	function get_NbAllArtsByNumMotCle($numMotCle){
 		global $db;
 
@@ -44,50 +18,5 @@ class MOTCLEARTICLE{
 		return($count);
 	}
 
-	/*function get_AllArtsByLibMotCle($libMotCle){
-		global $db;
-
-		// select
-		// prepare
-		// execute
-		return($allCommentsByArt);
-	}
-
-	function create($numArt, $numMotCle){
-		global $db;
-
-		try {
-			$db->beginTransaction();
-
-			// insert
-			// prepare
-			// execute
-			$db->commit();
-			$request->closeCursor();
-		}
-		catch (PDOException $e) {
-			$db->rollBack();
-			$request->closeCursor();
-			die('Erreur insert motclearticle : ' . $e->getMessage());
-		}
-	}
-
-	function delete($numArt, $numMotCle){
-		global $db;
-
-		try {
-			$db->beginTransaction();
-
-			// delete
-			// prepare
-			// execute
-			$db->commit();
-			$request->closeCursor();
-		}
-		catch (PDOException $e) {
-			$db->rollBack();
-			$request->closeCursor();
-			die('Erreur delete motclearticle : ' . $e->getMessage());
-		}
-	}*/
+	
 }	// End of class

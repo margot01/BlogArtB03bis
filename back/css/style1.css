@@ -96,17 +96,6 @@ input[type=submit] {
     font-size: 100%;
 }
 
-/*  Bordure rouge sur les input : champs obligatoires    
-    Apparemment ne fonctionne pas : à vérifier ?
-*/
-/*
-        input:invalid {
-          box-shadow: 0 0 5px 1px red;
-        }
-        input:focus:invalid {
-          outline: none;
-        }
-*/
 
 textarea {
     border:2px solid black;
@@ -119,23 +108,6 @@ textarea {
     border-radius: 8px;
  }
 
-/*        select, option {
-*/
-        /* requis pour composer de manière appropriée les éléments
-           de formulaire sur les navigateurs fondés sur WebKit */
-/*          -webkit-appearance: none;
-          
-          width : 50%;
-          border: 1px solid #333;
-          margin: 0;
-          
-          font-family: inherit;
-          font-size: 100%;
-          
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-        }
-*/
 
 select, option {
     background-color:#A6BEDE;

@@ -6,8 +6,7 @@
 //  Script  : updateUser.php  -  (ETUd)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
-
-// Algorithme de hachage fort et irréversible
+/*orithme de hachage fort et irréversible
 // password_hash()
 // https://www.php.net/manual/fr/function.password-hash.php
 //
@@ -260,3 +259,4 @@ require_once ROOT . '/front/includes/commons/___footerFront.php';
 ?>
 </body>
 </html>
+/*
