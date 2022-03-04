@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $erreur2 = false;
 
         $passMemb = $_POST['passMemb'];
+        $passMembHash=password_hash($passMemb, PASSWORD_DEFAULT, ['cost' => 15]);
         $eMailMemb = $_POST['eMailMemb'];
 
         $testEMail = $monMembre->get_1MembreByEmail($eMailMemb);
@@ -65,12 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($passMemb == $testEMail['passMemb']){
             $pseudoMemb = $testEMail['pseudoMemb'];
+            $idStat = $testEMail['idStat'];
 
             setcookie('user', $pseudoMemb, time() + 3600); // 1h
             setcookie('eMail', $eMailMemb, time() + 3600); 
             setcookie('pass', $passMembHash, time() + 3600);
+            setcookie('statut', $idStat, time() + 3600);
 
-            header("Location: /../../index.php");
+            header("Location: index.php");
 
         } else {
             $erreur2 = true;
