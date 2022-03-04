@@ -72,10 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     }// Fin if
 
-    //else { // Saisies invalides
-        //$erreur = true;
-        //$errSaisies =  "Erreur, la saisie est obligatoire !";
-    //}  
 
 }// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 

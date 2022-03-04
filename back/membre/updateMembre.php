@@ -117,8 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $passValid2F1 = 1;
                 $msgErrPassValid2 = "";
                 // Cryptage du password
-                // cost : meilleur coût algo cryptage (10: defaut)
-                // $pass1Memb = password_hash($pass1Memb, PASSWORD_DEFAULT, ['cost' => 15]);
+
             }else{
                 $passValid2F1 = 0;
                 $msgErrPassValid2 = "&nbsp;&nbsp;- Votre mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre, <br> 

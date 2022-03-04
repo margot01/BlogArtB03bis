@@ -97,8 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
     $nbArticle = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
-    //print_r($nbMembre);
-    //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+
     if ($nbArticle < 1) {
             $monArticle->delete($_POST["id"]);
             header("Location: ./article.php");

@@ -31,7 +31,7 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
 </head>
 
 <h1>Cette page est en construction</h1>
-<img class=construction src='<?php echo(ROOTFRONT . '/front/assets/images/topage.png');?>' alt='truc'>
+<img class=construction src='<?php echo(ROOTFRONT . '/front/assets/images/topage.png');?>' alt='page en construction miroir eau bordeaux'>
 
 <!-- <section class="top-page-index" style="background-image: url('<?php echo(ROOTFRONT . '/front/assets/images/topage.png');?>')">
 </section> -->

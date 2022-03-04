@@ -207,11 +207,6 @@ fieldset {
 	background-color: #0e1a24;	/* color: oldlace */
 	max-width: 600px;			/* largeur maximale cadre */
 	padding: 16px;				/* marge interne / sépare le contenu de la bordure	*/
-	/* Coins arrondis et couleur du cadre */
-	/* border: 2px solid grey; */
-	/* -moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px; */
 	margin:30px;
 }
 
@@ -259,7 +254,6 @@ label, button {
 
 .error {
 	padding: 2px;
-	/* border: solid 0px black; */
 	color: red;
 	font-style: italic;
 	border-radius: 5px;
@@ -274,7 +268,6 @@ label, button {
 
 .conteneur{
     padding: 15px;
-    /* border: 2px solid black; */
     border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -284,12 +277,8 @@ label, button {
     width: 90%
 }
 
-/* span {
-	background-color: purple;
-} */
 
 input {
- /* border:1px solid black; */
  background-color:#f1f2f2;
  border-radius: 5px;
 
@@ -302,8 +291,6 @@ input[type=radio] {
 }
 
 input[type=submit] {
-	/* margin-right:50px; */
-	/* background-color:transparent; */
 	border:none;
     color:#f1f2f2;
     font-family: 'Assistant', sans-serif;
@@ -318,7 +305,6 @@ select, option {
 }
 
 textarea {
- /* border:1px solid black; */
  background-color:#A6BEDE;
 }
 
@@ -359,7 +345,6 @@ textarea {
 *{
     margin:0;
     padding:0;
-    /* background-color:#263d57; */
 }
 
 /* HEADER */
@@ -421,8 +406,6 @@ footer .menu-desktop{
     display:inline;
     align-items: center;
     justify-content: space-between;
-    /* padding-left:100px;
-    padding-right:100px; */
 }
 
 
@@ -458,148 +441,3 @@ footer .utilitaires {
     justify-content: space-between;
     list-style-type: none;   
 }
-
-/*El copié collé du menu deroulant*/
-
-/* .top-menu{
-    position: relative;
-    display:flex;
-    justify-content: flex-end;
-    align-items: center;
-} */
-
-/* header nav ul{
-    list-style-type: none;
-} */
-
-
-
-/* header nav ul::after{
-    content: "";
-    display: table;
-    clear: both;
-} */
-
-/* header nav > ul > li > ul > li > a {
-    display: block;
-    text-decoration: none;
-    color: white;
-} */
-
-/* .sub-nav li{
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-} */
-
-/* .sub-nav{
-    display: none;
-    background-color: black;
-    position: absolute;
-    width:fit-content;
-    z-index: 1000;
-    font-weight: normal;
-} */
-
-
-
-/* header nav > ul li:hover .sub-nav{
-    display: block;
-} */
-
-/* .sub-nav li{
-    float: none;
-    width: 100%;
-    text-align: left;
-} */
-
-/* .sub-nav a{
-    padding: 10px;
-    border-bottom: none;
-} */
-
-/* .sub-nav a:hover{
-    border-bottom: none;
-    background-color: RGBa(200,200,200,0.1);
-}
-
-.scrolling-menu > a::after{
-content:" ▼";
-    font-size: 18px;
-} */
-
-/* .scrolling-menu li:hover{
-    color: gold;
-} */
-
-
-/* header a :hover{ */
-    /* text-decoration: none;
-    color: #263d57;
-    font-size:18px;
-} */
-
-/* Début scss mobile */
-
-/* @media screen and (min-width: 701px) {
-    .menu-mobile {
-        display: none;
-    }
-} */
-
-
-/* @media screen and (max-width: 700px) {
-    .menu-desktop2 {
-        display: none;
-    }
- 
-    .menu-mobile {
-        display: block;
-    }
-} */
-
-/* .container{
-font-family: 'Julius Sans One', sans-serif;
-} */
-
-/* .navbar-light .navbar-nav .nav-link {
-    color: #FAFAFA
-} */
-
-/* .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active{
-    color: #FAFAFA;
-} */
-
-/* .navbar-light .navbar-toggler-icon {
-    background-image: url("/assets/images/menu_burger.svg");
-    height:50px ;
-    width:50px;
-} */
-
-/* .dropdown-menu{
-    background-color: #1C1C1B;
-    border: none;
-    color: #FAFAFA;
-
-} */
-
-/* .dropdown-item{
-    color: #FAFAFA;
-} */
-
-/* .btn-outline-success{
-    background-image: url("/assets/images/index_icon-search.svg");
-    background-repeat: no-repeat;
-    border:none;
-    background-position: center;
-} */
-
-/* .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
-    color: #D2BE88 ;
-} */
-
-/* .btn-outline-success:hover{
-    background-color: #D2BE88;
-    border: none;
-} */

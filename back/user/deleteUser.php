@@ -6,7 +6,7 @@
 //  Script  : deleteUser.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
-
+/*
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
@@ -59,7 +59,7 @@ include __DIR__ . '/initUser.php';
             border: 1px solid #000000;
             background-color: whitesmoke;
             /* Coins arrondis et couleur du cadre */
-            border: 2px solid grey;
+     /*       border: 2px solid grey;
             -moz-border-radius: 8px;
             -webkit-border-radius: 8px;
             border-radius: 8px;
@@ -156,3 +156,4 @@ require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>
+*/

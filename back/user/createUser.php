@@ -11,7 +11,7 @@
 // password_hash()
 // https://www.php.net/manual/fr/function.password-hash.php
 //
-
+/*
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
@@ -253,3 +253,4 @@ require_once __DIR__ . '/footer.php';
     </script>
 </body>
 </html>
+*/

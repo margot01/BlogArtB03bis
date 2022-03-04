@@ -62,14 +62,6 @@ class ANGLE{
 		return($allAnglesByLang);
 	}
 
-	//function get_AllLanguesOrderByLibLang(){
-   //     global $db;
-		// select
-		// prepare
-		// execute
-  //      $allLanguesOrderByLibLang = $result->fetchAll();
-   //     return($allLanguesOrderByLibLang);
-   // }
 
 	function get_AllAnglesByLibAngl(){
 		global $db;
