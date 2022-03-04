@@ -19,10 +19,15 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
-
+require_once __DIR__ . '/../../class_crud/user.class.php';
 // Instanciation de la classe User
+$monUser = new user();
 
+// Insertion classe Statut
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
+// Instanciation de la classe Statut
+$monStatut = new statut();
 
 // Gestion des erreurs de saisie
 $erreur = false;
@@ -32,7 +37,25 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if (isset($_POST["Submit"]) AND $Submit === "Initialiser") {
+    
+            header("Location: ./user.php");
+    } 
+
+    if((isset($_POST['prenomUser']) AND !empty($_POST['prenomUser'])) 
+    AND(isset($_POST['nomUser']) AND !empty($_POST['nomUser'])) 
+    AND (isset($_POST['eMail1User']) AND !empty($_POST['eMail1User'])) 
+    AND(isset($_POST['eMail2User']) AND !empty($_POST['eMail2User'])) 
+    AND(isset($_POST['pass1User']) AND !empty($_POST['pass1User'])) 
+    AND(isset($_POST['pass2User']) AND !empty($_POST['pass2User'])) 
+    AND(isset($_POST['pseudoUser']) AND !empty($_POST['pseudoUser'])) 
+    AND(!empty($_POST['Submit'])) AND ($Submit === "Valider")) {
 
 
     // controle des saisies du formulaire

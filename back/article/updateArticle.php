@@ -368,7 +368,9 @@ include __DIR__ . '/initArticle.php';
       	  <label><b>&nbsp;&nbsp;&nbsp;Quel angle :&nbsp;&nbsp;</b></label>
 		  <div id='TypAngl' style='display:inline'>
       	    <select size="1" name="TypAngl" title="Sélectionnez l'angle !" style="padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;">
-			  <option value='-1'>- - - Choissisez l'angle - - -</option>
+              <option value='-1'><?= $monAngle -> get_1Angle($numAngl)['libAngl'] ?></option>
+
+                </select>
       	    </select>
       	  </div>
       	  <br /><br /><br />

@@ -16,7 +16,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Insertion classe Langue
 require_once __DIR__ . '/../../class_crud/langue.class.php';
 
-require_once ROOT . '/front/includes/commons/___headerFront.php';
 
 // Instanciation de la classe langue
 $maLangue = new LANGUE();
@@ -84,6 +83,12 @@ include __DIR__ . '/initLangue.php';
 
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
+
+<!-- section pour ajouter le header sans qu'il gene avec le location-->
+<section> 
+<?php require_once ROOT . '/front/includes/commons/___headerFront.php'; ?>
+</section>
+
 <body>
     <h1>mon espace administrateur</h1>
     

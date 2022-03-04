@@ -10,28 +10,36 @@
         <nav>
             <ul class="menu">
                 <li class="menu-accueil">
-                    <a href="index1.html" class=accueil>accueil</a>
+                    <a href="<?php echo(ROOTFRONT . '/index.php')?>" class=accueil>accueil</a>
                 </li>
                 <li class="menu-apropos">
-                    <a href="apropos.html" class=apropos>a propos</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=apropos>a propos</a>
                 </li>
                 <li class="menu-articles">
-                    <a href="articles.html" class=articles>articles</a>
+                    <a href="<?php echo(ROOTFRONT . '/construction.php')?>" class=articles>articles</a>
                 </li>
-                <!-- <li>
-                    <a href="construction.html">Nous soutenir</a>
-                </li> -->
+                <li>
+                    <a href="index1.php">
+                        <?php
+                        if ($_COOKIE['statut'] == 1){
+                            echo "panneau d'admin";
+                        } else {
+                            echo "&nbsp";
+                        }
+                        ?>
+                    </a>
+                </li>
             </ul>
         </nav>
         
-        <a href="index.html">
+        <a href="<?php echo(ROOTFRONT . '/index.php')?>">
             <img class="logo" src="<?php echo(ROOTFRONT . '/front/assets/images/logoBrrrdeaux.svg');?>" alt="Logo Brrrdeaux" />
         </a>
 
         <nav>
             <ul class="bar">
                 <li class="bar-compte">
-                    <a href="connect.html" class=connect>mon compte</a>
+                    <a href="<?php echo(ROOTFRONT . '/mon_compte.php')?>" class=connect>mon compte</a>
                 </li>
                 <li>
                     <select>

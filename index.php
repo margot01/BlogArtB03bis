@@ -56,38 +56,48 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
         $i=1;
     ?>
 
-    <a href="/front/includes/commons/article_front.php">
-    <?php foreach($dernierArticle as $row) {?>
-        <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>" alt="image de l'article"/>
+    <?php foreach($dernierArticle as $row) {
+        $id=$row['numArt'];?>
+        <a href="article_front.php?id=<?php echo $id?>" class="grosArticle">
+        <div class="image" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>)"></div>
         <h3> <?php echo $row["libTitrArt"] ?> </h3>
-        <p> <?php echo $row["dtCreArt"] ?> </p>
-        <p> <?php echo $row["libChapoArt"] ?> </p>
+        <p> <?php echo $row["dtCreArt"] ?> </br> </br> </br>
+        <?php echo $row["libChapoArt"] ?> </p>
         <?php } ?>
     </a>
     
+    <div class="troisPetitsArticles">
     <?php foreach($allArticles as $ligne) {
-        if ($i == 1){
-            $image = $ligne['urlPhotArt']; ?> 
-        <?php } else { ?>
-            <div>
-            
-            <?php $image=$row['urlPhotArt']; 
-            $titre= $row['libTitrArt'];
-            $date=$row['dtCreArt'];
-            $chapeau=$row['libChapoArt'];
-            ?>
+        $idSelectArt=$ligne['numArt'];
+        ?> <a href="article_front.php?id=<?php echo $idSelectArt?>"> <?php
+        $titre= $ligne['libTitrArt'];
+        $date=$ligne['dtCreArt'];
+        $chapeau=$ligne['libChapoArt'];
+        $image=$ligne['urlPhotArt'];
 
-        <h3> <?php echo $titre; ?> </h3>
-        <p> <?php echo $date ; ?> </p>
-        <img class=img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $image) ;?>" alt="image de l'article"/> <br/>
-            <p> <?php
-            echo $chapeau . "<br>";
-            ?> </p>
+        if ($i == 1){ ?> 
+            <div class="onveutpastevoir">
+            <h3> <?php echo $titre; ?> </h3>
+            <p> <?php echo $date ; ?> </p>
+            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+            
+            <p> <?php echo $chapeau . "<br>"; ?> </p>
+            </div> 
+        <?php } else { ?>
+        
+            <div>
+            <h3> <?php echo $titre; ?> </h3>
+            <p> <?php echo $date ; ?> </p>
+            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+            
+            <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div>
-            <?php } 
+        <?php } 
         $i = $i+1;
+        ?> </a> <?php
     } 
     ?>
+    </div>
 
 </section>
 

@@ -8,26 +8,26 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../../util/utilErrOn.php';
-require_once __DIR__ . '/../../../util/regex.php';
+require_once __DIR__ . './util/utilErrOn.php';
+require_once __DIR__ . './util/regex.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../../util/ctrlSaisies.php';
+require_once __DIR__ . './util/ctrlSaisies.php';
 // Del accents sur string
-require_once __DIR__ . '/../../../util/delAccents.php';
+require_once __DIR__ . './util/delAccents.php';
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../../class_crud/membre.class.php';
+require_once __DIR__ . './class_crud/membre.class.php';
 // Instanciation de la classe Membre
 $monMembre = new MEMBRE();
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../../class_crud/user.class.php';
+require_once __DIR__ . './class_crud/user.class.php';
 // Instanciation de la classe Membre
 $monUser = new USER();
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../../class_crud/statut.class.php';
+require_once __DIR__ . './class_crud/statut.class.php';
 // Instanciation de la classe Statut
 $monStatut = new STATUT();
 
@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $erreur2 = false;
 
         $passMemb = $_POST['passMemb'];
+        $passMembHash=password_hash($passMemb, PASSWORD_DEFAULT, ['cost' => 15]);
         $eMailMemb = $_POST['eMailMemb'];
 
         $testEMail = $monMembre->get_1MembreByEmail($eMailMemb);
@@ -65,12 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($passMemb == $testEMail['passMemb']){
             $pseudoMemb = $testEMail['pseudoMemb'];
+            $idStat = $testEMail['idStat'];
 
             setcookie('user', $pseudoMemb, time() + 3600); // 1h
             setcookie('eMail', $eMailMemb, time() + 3600); 
             setcookie('pass', $passMembHash, time() + 3600);
+            setcookie('statut', $idStat, time() + 3600);
 
-            header("Location: /../../index.php");
+            header("Location: index.php");
 
         } else {
             $erreur2 = true;
@@ -210,7 +213,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $pass1Memb, $eMail1Memb, $dtCreaMemb, $accordMemb, $idStat);
 
             //A remettre une fois que la page d'accueil est créée
-            header("Location: ./accueil.php");
+            echo "Compte créé, merci de vous connecter.";
         }else{
             // Saisies invalides
             $erreur = true;
@@ -227,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 // Init variables form
-include __DIR__ . '/../../../back/membre/initMembre.php';
+include __DIR__ . './back/membre/initMembre.php';
 ?>
 
 <!DOCTYPE html>
@@ -275,7 +278,7 @@ include __DIR__ . '/../../../back/membre/initMembre.php';
 </head>
 <body>
     <?php
-    require_once __DIR__ . '/___headerFront.php';
+    require_once __DIR__ . '/front/includes/commons/___headerFront.php';
     ?>
     <h1 class = "Mon compte">Mon compte</h1>
 
@@ -443,7 +446,7 @@ include __DIR__ . '/../../../back/membre/initMembre.php';
 </section>
 
 <?php
-require_once __DIR__ . '/___footerFront.php';
+require_once __DIR__ . '/front/includes/commons/___footerFront.php';
 ?>
 
 </body>
