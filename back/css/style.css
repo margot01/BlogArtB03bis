@@ -29,6 +29,7 @@ h2{
 h3{
     font-family: 'Assistant', sans-serif;
 	font-size:26px;
+	text-transform: uppercase;
 }
 
 p{
@@ -71,6 +72,7 @@ h1 .crud{
 .lastArticles h2 {
     color:#f1f2f2;
     text-transform: uppercase;
+    margin: 50px 0;
 }
 
 .lastArticles a:hover{
@@ -80,7 +82,7 @@ h1 .crud{
 
 .grosArticle{
     text-align: center;
-    margin-bottom: 120px;
+    margin: 120px 0;
 }
 
 .grosArticle h3{
@@ -88,11 +90,32 @@ h1 .crud{
 }
 
 .grosArticle p{
-    margin: 40px 365px;
+    margin: 40px 365px 100px 365px;
+}
+
+.grosArticle img{
+    background-size: cover;
+    height: 350px;
+    
+}
+
+.image {
+    background-size: cover;
+    width: 1899px;
+    height: 350px;
+}
+
+.image-petite {
+    background-size: cover;
+    width: 365px;
+    height: 180px;
 }
 
 .troisPetitsArticles{
     display:flex;
+    justify-content:center;
+	justify-content: space-between;
+    margin: 0 100px;
 }
 
 .troisPetitsArticles a{

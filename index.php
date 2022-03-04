@@ -59,10 +59,10 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
     <?php foreach($dernierArticle as $row) {
         $id=$row['numArt'];?>
         <a href="article_front.php?id=<?php echo $id?>" class="grosArticle">
-        <img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>" alt="image de l'article"/>
+        <div class="image" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $row["urlPhotArt"]);?>)"></div>
         <h3> <?php echo $row["libTitrArt"] ?> </h3>
-        <p> <?php echo $row["dtCreArt"] ?> </p>
-        <p> <?php echo $row["libChapoArt"] ?> </p>
+        <p> <?php echo $row["dtCreArt"] ?> </br> </br> </br>
+        <?php echo $row["libChapoArt"] ?> </p>
         <?php } ?>
     </a>
     
@@ -82,7 +82,8 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
             <div>
             <h3> <?php echo $titre; ?> </h3>
             <p> <?php echo $date ; ?> </p>
-            <img class=img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $image) ;?>" alt="image de l'article"/> <br/>
+            <div class="image-petite" style="background-image:url(<?php echo(ROOTFRONT . '/back/article/uploads/' . $image);?>)"></div> <br/>
+            
             <p> <?php echo $chapeau . "<br>"; ?> </p>
             </div>
         <?php } 
