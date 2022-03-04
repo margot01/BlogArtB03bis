@@ -19,20 +19,56 @@ h1{
 	text-transform: uppercase;
 	padding-top:50px;
 	padding-bottom: 50px;
+    color: #f1f2f2;
+}
+
+.cover{
+    min-height: 1920px;
+    /* met toi encover */
 }
 
 h1 .crud{
     color:#f1f2f2;
 }
 
+p{
+    font-family: 'Assistant', sans-serif;
+	font-size:18px;
+}
 
+.date{
+    text-align: center;
+}
+
+.jesaispasencore p{
+    font-family: 'Assistant', sans-serif;
+	font-size:18px;
+    margin: 50px 290px;
+}
+
+h3{
+    font-family: 'Assistant', sans-serif;
+	font-size:26px;
+}
+
+.jesaispasencore h3{
+    margin-left: 290px;
+    margin-right: 290px;
+}
 
 h2{
 	font-family: 'Amarante', sans-serif;
 	font-size:36px;
-	text-align:center;
-    
+	text-align:center;   
 }
+
+.jesaispasencore h2{
+    text-align:left;
+    margin-left: 290px;
+    margin-right: 290px;
+
+}
+
 .lastArticles h2 {
     color:#f1f2f2;
     text-transform: uppercase;
@@ -139,14 +175,14 @@ fieldset .controle-group .control-label b{
 }
 
 h4{
-    color:red;
+    color:#f1f2f2;
 }
 thead{
-    color:red;
+    color:#f1f2f2;
 }
 
 .span1 {
-	color: #CC9900;			/* color: yellow; */
+	color: #f1f2f2;			/* color: yellow; */
 }
 
 label, button {

@@ -11,7 +11,6 @@
 require_once __DIR__ . '/connect/config.php';
 require_once __DIR__ . '/util/utilErrOn.php';
 
-
 // Insertion classe Langue 
 require_once ROOT . '/class_crud/article.class.php';
 // Instanciation de la classe angle
@@ -23,7 +22,6 @@ $monArticle = new ARTICLE();
 <?php
 require_once ROOT . '/front/includes/commons/___headerFront.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -72,17 +70,19 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
             $image = $ligne['urlPhotArt']; ?> 
         <?php } else { ?>
             <div>
-            <?php
-            $image=$row['urlPhotArt']; 
+            
+            <?php $image=$row['urlPhotArt']; 
             $titre= $row['libTitrArt'];
             $date=$row['dtCreArt'];
             $chapeau=$row['libChapoArt'];
-            echo $titre . "<br>" . $date . "<br>";
             ?>
-            <img src='uploads/<?php echo $image ?>'>
-            <?php
+
+        <h3> <?php echo $titre; ?> </h3>
+        <p> <?php echo $date ; ?> </p>
+        <img class=img src="<?php echo(ROOTFRONT . '/back/article/uploads/' . $image) ;?>" alt="image de l'article"/> <br/>
+            <p> <?php
             echo $chapeau . "<br>";
-            ?>
+            ?> </p>
             </div>
             <?php } 
         $i = $i+1;
@@ -90,8 +90,6 @@ require_once ROOT . '/front/includes/commons/___headerFront.php';
     ?>
 
 </section>
-
-
 
 <?php
 require_once ROOT . '/front/includes/commons/___footerFront.php';
